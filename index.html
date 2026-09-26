@@ -37,29 +37,33 @@
     button, input, select { font: inherit; }
     button { color: inherit; }
     .topbar {
+      position: sticky; top: 0; z-index: 10;
       height: 74px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 max(28px, calc((100vw - 1100px) / 2));
-      border-bottom: 1px solid var(--line);
-      background: rgb(255 255 255 / 72%);
+      border-bottom: 3px solid var(--yellow);
+      background: var(--green);
+      color: white;
+      box-shadow: 0 5px 18px rgb(32 40 32 / 12%);
     }
     .brand { display: flex; align-items: center; gap: 11px; font: 800 19px Manrope, sans-serif; letter-spacing: 0; }
     .brand-mark {
       width: 30px; height: 30px; display: grid; place-items: center;
-      border-radius: 9px; background: var(--green); color: white; font-size: 17px;
+      border-radius: 9px; background: white; color: var(--green); font-size: 17px;
     }
     .primary-nav { display: flex; align-items: center; gap: 6px; }
     .primary-nav a {
-      padding: 9px 12px; border-radius: 5px; color: var(--muted);
+      padding: 9px 12px; border-radius: 5px; color: rgb(255 255 255 / 76%);
       font-size: 12px; font-weight: 600; text-decoration: none; transition: background .18s, color .18s;
     }
-    .primary-nav a:hover { background: var(--green-soft); color: var(--green); }
-    .saved-note { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
-    .saved-dot { width: 7px; height: 7px; border-radius: 50%; background: #61a87b; }
-    main { width: min(100% - 40px, 760px); margin: 61px auto 90px; animation: page-enter .5s ease-out both; }
-    @keyframes page-enter { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    .primary-nav a:hover { background: rgb(255 255 255 / 16%); color: white; }
+    .primary-nav a:active { transform: translateY(1px); }
+    .saved-note { display: flex; align-items: center; gap: 8px; color: rgb(255 255 255 / 76%); font-size: 12px; }
+    .saved-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--yellow); }
+    main { width: min(100% - 40px, 760px); margin: 61px auto 90px; animation: page-enter .7s cubic-bezier(.16, 1, .3, 1) both; }
+    @keyframes page-enter { from { opacity: 0; transform: translateY(16px) scale(.99); } to { opacity: 1; transform: translateY(0) scale(1); } }
     .date-kicker { display: flex; align-items: center; gap: 10px; color: var(--green); font-size: 12px; font-weight: 700; letter-spacing: 0; text-transform: uppercase; }
     .date-kicker::before { content: ""; width: 22px; height: 2px; background: var(--coral); }
     h1 { margin: 12px 0 8px; font: 700 42px/1.15 Manrope, sans-serif; letter-spacing: 0; }
@@ -97,9 +101,9 @@
     .task-list { margin: 0; padding: 0; list-style: none; }
     .task-row {
       display: flex; align-items: center; gap: 14px; min-height: 70px; padding: 12px 5px;
-      border-bottom: 1px solid var(--line); animation: arrive .22s ease-out both;
+      border-bottom: 1px solid var(--line); animation: arrive .32s cubic-bezier(.2, .8, .2, 1) both;
     }
-    @keyframes arrive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes arrive { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .check-button {
       position: relative; flex: 0 0 21px; width: 21px; height: 21px; padding: 0;
       border: 1.5px solid #c9d0c8; border-radius: 50%; background: transparent; cursor: pointer;
