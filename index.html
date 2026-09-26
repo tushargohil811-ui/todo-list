@@ -50,6 +50,12 @@
       width: 30px; height: 30px; display: grid; place-items: center;
       border-radius: 9px; background: var(--green); color: white; font-size: 17px;
     }
+    .primary-nav { display: flex; align-items: center; gap: 6px; }
+    .primary-nav a {
+      padding: 9px 12px; border-radius: 5px; color: var(--muted);
+      font-size: 12px; font-weight: 600; text-decoration: none; transition: background .18s, color .18s;
+    }
+    .primary-nav a:hover { background: var(--green-soft); color: var(--green); }
     .saved-note { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 12px; }
     .saved-dot { width: 7px; height: 7px; border-radius: 50%; background: #61a87b; }
     main { width: min(100% - 40px, 760px); margin: 61px auto 90px; animation: page-enter .5s ease-out both; }
@@ -146,11 +152,15 @@
 <body>
   <header class="topbar">
     <div class="brand"><span class="brand-mark" aria-hidden="true">✓</span> daymark</div>
+    <nav class="primary-nav" aria-label="Main navigation">
+      <a href="#today">Today</a>
+      <a href="#tasks">Tasks</a>
+    </nav>
     <div class="saved-note"><span class="saved-dot" aria-hidden="true"></span> Saved on this device</div>
   </header>
   <main>
     <div class="date-kicker" id="today-label">Your day</div>
-    <h1>Today</h1>
+    <h1 id="today">Today</h1>
     <p class="subtitle"><span class="task-count" id="remaining-count">0 tasks</span> left to bring across the finish line.</p>
 
     <form class="composer" id="task-form">
@@ -163,7 +173,7 @@
       <button class="add-button" type="submit">Add task <span aria-hidden="true">+</span></button>
     </form>
 
-    <section aria-label="Your tasks">
+    <section id="tasks" aria-label="Your tasks">
       <div class="list-toolbar">
         <div class="filters" role="group" aria-label="Filter tasks">
           <button class="filter-button" type="button" data-filter="all" aria-pressed="true">All</button>
