@@ -1,4 +1,4 @@
-# Daymark
+# todolist  app
 
 A lightweight to-do list that runs in your browser. Tasks are saved in the browser on your device.
 
